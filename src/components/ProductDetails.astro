@@ -1,0 +1,161 @@
+---
+/* Product details in the selected Bento visual language: one lime statement
+   panel plus a compact dark feature ledger. Native details keep all copy
+   available without turning the page into a long white document. */
+
+const devices = [
+  ['phone', 'الجوال'],
+  ['headphones', 'السماعات'],
+  ['gamepad', 'يد البلايستيشن'],
+  ['laptop', 'اللابتوب والأجهزة المتوافقة'],
+];
+
+const features = [
+  {
+    icon: 'bolt',
+    title: 'شحن سريع وأداء قوي',
+    text: 'بطارية بسعة 5000mAh وقدرة 20W تدعم الشحن السريع لتوفير وقتك وشحن أجهزتك بكفاءة. قد يصل الشحن إلى 100% خلال 30 إلى 40 دقيقة بحسب نوع الجهاز وسعة بطاريته والاستخدام أثناء الشحن.',
+  },
+  {
+    icon: 'plug',
+    title: 'توصيل مباشر بدون أسلاك',
+    text: 'يتصل مباشرة بمنفذ جهازك ويبدأ الشحن بسهولة، بدون عناء حمل أسلاك إضافية أو باور بانك كبير الحجم. وداعًا لفوضى الأسلاك.',
+  },
+  {
+    icon: 'plane',
+    title: 'مناسب للسفر',
+    text: 'حجمه الصغير وتصميمه العملي يجعلان حمله سهلًا أثناء السفر. سعته 5000mAh تقع ضمن الحدود الشائعة للطيران، مع ضرورة مراجعة سياسة شركة الطيران قبل الرحلة.',
+  },
+  {
+    icon: 'shield',
+    title: 'نظام حماية ذكي ومتعدد',
+    text: 'حماية من ارتفاع الحرارة، والشحن الزائد، والتيار الزائد، والقصر الكهربائي. يراقب حساس Thermistor الحرارة ويفصل تلقائيًا عند ارتفاعها بشكل غير طبيعي.',
+  },
+  {
+    icon: 'pocket',
+    title: 'حجم صغير، قوة كبيرة',
+    text: 'تصميم مدمج وخفيف يناسب الجيب أو الحقيبة، لتكون الطاقة الإضافية معك في أي وقت ومكان.',
+  },
+  {
+    icon: 'daily',
+    title: 'عملي للاستخدام اليومي',
+    text: 'بديل مريح للباور بانك التقليدي الكبير، يجمع بين سهولة الحمل، وسرعة الشحن، والاستخدام المباشر.',
+  },
+  {
+    icon: 'warranty',
+    title: 'ضمان سنتين',
+    text: 'المنتج مشمول بضمان لمدة سنتين. وفي حال حدوث عطل مصنعي من الجهاز نفسه يتم استبداله وفق شروط الضمان.',
+  },
+ ];
+
+const deviceIconPaths = {
+  phone: '<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 5h4M11 18.5h2"/>',
+  headphones: '<path d="M4 13v-2a8 8 0 0116 0v2M4 13h3v7H5a1 1 0 01-1-1zM20 13h-3v7h2a1 1 0 001-1z"/>',
+  gamepad: '<path d="M7 8h10a5 5 0 014.6 7l-1.2 3a2 2 0 01-3.3.7L15.5 17h-7l-1.6 1.7a2 2 0 01-3.3-.7l-1.2-3A5 5 0 017 8z"/><path d="M7 12v4M5 14h4M16.5 12.5h.01M19 15h.01"/>',
+  laptop: '<rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 18h20M8 18l1-3h6l1 3"/>',
+};
+
+const iconPaths = {
+  bolt: '<path d="M13 2L5 13h6l-1 9 9-13h-6z"/>',
+  plug: '<path d="M8 3v5M16 3v5M6 8h12v2a6 6 0 01-6 6v5M9 21h6"/>',
+  plane: '<path d="M3 11l18-7-7 17-3-7-8-3zM11 14l4-4"/>',
+  shield: '<path d="M12 3l7 3v5c0 4.6-2.8 8.2-7 10-4.2-1.8-7-5.4-7-10V6zM9 12l2 2 4-4"/>',
+  pocket: '<rect x="5" y="3" width="14" height="18" rx="3"/><path d="M8 8h8M9 12h6"/>',
+  daily: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4V2M20 12h2"/>',
+  warranty: '<path d="M12 21s-7-4.3-7-10a4 4 0 017-2.7A4 4 0 0119 11c0 5.7-7 10-7 10z"/>',
+};
+---
+
+<section class="bento-details section" id="details">
+  <div class="w-layout-blockcontainer container padding-4-5rem w-container">
+    <div class="bento-details-grid">
+      <div class="details-statement slide-from-left-animation">
+        <div class="details-kicker">MINI ORANGE · 5000mAh</div>
+        <h2>حجم صغير.<br><span>أداء قوي.</span></h2>
+        <p>تصميم عملي يرافق استخداماتك اليومية، بدون أسلاك إضافية أو حجم يثقل عليك.</p>
+
+        <ul class="details-devices" aria-label="الأجهزة المتوافقة">
+          {devices.map(([icon, label]) => (
+            <li>
+              <span class="device-icon" aria-hidden="true"><svg viewBox="0 0 24 24" set:html={deviceIconPaths[icon]}></svg></span>
+              <b>{label}</b>
+            </li>
+          ))}
+        </ul>
+
+        <a href="https://orange-sa.com/ar/mini-orange/p675834151" class="details-buy">اشترِ أكثر، وفّر أكبر <span aria-hidden="true">←</span></a>
+      </div>
+
+      <div class="details-ledger slide-from-right-animation">
+        <header class="details-ledger-head">
+          <span>مميزات Mini Orange</span>
+          <small>اضغط لقراءة التفاصيل</small>
+        </header>
+
+        {features.map((feature, index) => (
+          <div class:list={["details-item", { "is-open": index === 0 }]} data-accordion-item>
+            <button class="details-summary" type="button" aria-expanded={index === 0 ? "true" : "false"} aria-controls={`benefit-${index + 1}`} data-accordion-trigger>
+              <span class="details-number">{String(index + 1).padStart(2, '0')}</span>
+              <i class="details-icon" aria-hidden="true"><svg viewBox="0 0 24 24" set:html={iconPaths[feature.icon]}></svg></i>
+              <b>{feature.title}</b>
+              <span class="details-toggle" aria-hidden="true"><span></span><span></span></span>
+            </button>
+            <div class="details-answer" id={`benefit-${index + 1}`} data-accordion-panel>
+              <div><p>{feature.text}</p></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <footer class="details-close slide-up-animation">
+      <span>MINI ORANGE</span>
+      <b>طاقة إضافية معك دائمًا، بحجم أصغر وراحة أكبر.</b>
+      <div><strong>99</strong><small>ر.س تبدأ من</small></div>
+    </footer>
+  </div>
+</section>
+
+
+<script>
+  const root = document.querySelector('.details-ledger');
+  if (root) {
+    const items = Array.from(root.querySelectorAll('[data-accordion-item]'));
+
+    const setOpen = (item, open) => {
+      const trigger = item.querySelector('[data-accordion-trigger]');
+      const panel = item.querySelector('[data-accordion-panel]');
+      if (!(trigger instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) return;
+
+      const start = panel.getBoundingClientRect().height;
+      item.classList.toggle('is-open', open);
+      trigger.setAttribute('aria-expanded', String(open));
+      panel.style.height = `${start}px`;
+      panel.offsetHeight;
+      panel.style.height = open ? `${panel.scrollHeight}px` : '0px';
+    };
+
+    items.forEach((item) => {
+      const trigger = item.querySelector('[data-accordion-trigger]');
+      const panel = item.querySelector('[data-accordion-panel]');
+      if (!(trigger instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) return;
+
+      panel.style.height = item.classList.contains('is-open') ? `${panel.scrollHeight}px` : '0px';
+      trigger.addEventListener('click', () => {
+        const nextOpen = !item.classList.contains('is-open');
+        items.forEach((other) => { if (other !== item && other.classList.contains('is-open')) setOpen(other, false); });
+        setOpen(item, nextOpen);
+      });
+      panel.addEventListener('transitionend', (event) => {
+        if (event.propertyName === 'height' && item.classList.contains('is-open')) panel.style.height = 'auto';
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      items.forEach((item) => {
+        const panel = item.querySelector('[data-accordion-panel]');
+        if (panel instanceof HTMLElement && item.classList.contains('is-open')) panel.style.height = 'auto';
+      });
+    }, { passive: true });
+  }
+</script>

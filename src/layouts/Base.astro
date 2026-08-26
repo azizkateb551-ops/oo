@@ -1,0 +1,44 @@
+---
+import '../styles/webflow.css';
+import '../styles/mini-orange-content.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+const {
+  title = 'Mini Orange · قوة كبيرة بحجم الجيب',
+  description = 'Mini Orange بسعة 5000mAh وشحن سريع 20W، يتصل مباشرة بمنفذ Type-C بدون سلك.',
+  image = '/images/mo-09.webp',
+} = Astro.props;
+---
+
+<!doctype html>
+<html data-wf-page="6a8f409988e90f745c5cdd2a" data-wf-site="6a8f409788e90f745c5cdceb" data-wf-status="1" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/app-icon.png" />
+  </head>
+  <body id="top">
+    <slot />
+    <!-- Exact Webflow runtime order from the approved export. -->
+    <script is:inline src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script is:inline src="/js/jquery.js?site=6a8f409788e90f745c5cdceb"></script>
+    <script is:inline src="/js/webflow.schunk.36b8fb49256177c8.js"></script>
+    <script is:inline src="/js/webflow.schunk.eee8f47214fb2f44.js"></script>
+    <script is:inline src="/js/webflow-script.js"></script>
+  </body>
+</html>

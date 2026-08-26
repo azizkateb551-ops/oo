@@ -1,0 +1,92 @@
+@import './details.css';
+/* Content-only layer. No container, spacing, dimension, transform, animation,
+   breakpoint, or positioning rules are changed. */
+:root{--font-family--body:Tajawal,sans-serif;--font-family--heading:Tajawal,sans-serif}
+body{font-family:Tajawal,sans-serif;font-weight:500}
+h1,h2,h3,h4,h5,h6{font-family:Tajawal,sans-serif;font-weight:800}
+.navbar,.navbar-menu{direction:rtl}
+.logo-link-wrapper{direction:ltr}
+@media(max-width:767px){html,body{overflow-x:hidden!important;max-width:100%}}
+
+/* The requested gaming image fills the existing CTA card. Its original size,
+   border radius, spacing and slide-down animation remain unchanged. */
+.cta-card{color:#fff}
+.cta-card .cta-title,.cta-card .max-width-30rem{color:#fff;text-shadow:0 2px 18px #0009}
+.cta-card .sign-up-form-container{background:#111}
+
+/* Force Tajawal across every template text role. The original design's sizes,
+   spacing, weights, containers and animation geometry remain untouched. */
+html,body,button,input,textarea,select,
+h1,h2,h3,h4,h5,h6,p,a,span,div,label,
+.w-button,.w-input,.button-text,.button-text-absolute,
+.cta-title,.metrics-text,.nav-link,.footer-link{
+  font-family:Tajawal,sans-serif!important;
+}
+
+/* ── phone crop fix: metrics + real-use cards ─────────────────────────── */
+/* The template's small-screen rule collapses four metrics to one column and
+   keeps 6rem display type, creating a very tall block that is clipped by the
+   rounded container. Use a compact two-column grid and viewport-aware type. */
+@media(max-width:767px){
+  .metrics-wrapper{
+    width:100%!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:1.5rem .75rem!important;
+    padding-inline:1rem;
+  }
+  .metrics-block{width:100%;min-width:0;text-align:center}
+  .metrics-text{
+    max-width:100%;
+    font-size:clamp(2.25rem,12vw,3.8rem)!important;
+    line-height:1.08!important;
+    white-space:nowrap;
+  }
+  .metrics-block p{font-size:.82rem;line-height:1.45}
+
+  /* Remove the desktop 9rem side padding, then let each existing CMS card own
+     the available width. No section, animation hook or card markup changes. */
+  #uses .container.padding-9rem{padding-left:1rem!important;padding-right:1rem!important}
+  #uses .posts-title-flex{width:100%;min-width:0}
+  #uses .posts-text-block{max-width:100%}
+  #uses .posts-flex{width:100%;min-width:0;gap:3rem!important}
+  #uses .w-dyn-item{width:100%;min-width:0}
+  #uses .featured-card{width:100%!important;min-width:0!important;max-width:none!important}
+  #uses .image-wrapper-small{width:100%;max-width:100%;aspect-ratio:1/1;height:auto}
+  #uses .featured-details-flex{width:100%;gap:.75rem;flex-wrap:wrap}
+  #uses .posts-avatar-flex,#uses .posts-block{min-width:0}
+  #uses .featured-card h4{max-width:100%;white-space:normal;text-wrap:balance}
+}
+@media(max-width:380px){
+  .metrics-text{font-size:clamp(2rem,10.5vw,2.8rem)!important}
+}
+
+/* ── one centered brand mark ──────────────────────────────────────────── */
+.single-brand-grid{
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  width:100%;
+  padding-top:clamp(2rem,4vw,4rem);
+}
+.single-brand-logo{
+  display:flex;justify-content:center;align-items:center;
+  width:min(22rem,72vw)!important;
+}
+.single-brand-logo img{width:100%;height:auto;object-fit:contain}
+
+/* ── how to use ───────────────────────────────────────────────────────── */
+.how-to-section{background:#efefef}
+.how-to-heading{display:flex;justify-content:center;text-align:center}
+.how-to-heading h2{font-size:clamp(2.5rem,5vw,5rem);line-height:1.15}
+.how-to-heading p{max-width:42rem;margin:1rem auto 0;font-size:clamp(1rem,1.35vw,1.2rem);line-height:1.8}
+.how-to-phone-wrap{display:grid;place-items:center;width:100%}
+.how-to-phone{
+  position:relative;width:min(29.4rem,53.2vw);aspect-ratio:3/4;
+  padding:.65rem;border-radius:2rem;background:#111;
+  box-shadow:0 1.75rem 4rem #1515152e,inset 0 0 0 1px #ffffff26;
+}
+.how-to-phone video{display:block;width:100%;height:100%;object-fit:cover;border-radius:1.4rem;background:#ddd}
+@media(max-width:767px){
+  .how-to-phone{width:56vw;padding:.4rem;border-radius:1.25rem}
+  .how-to-phone video{border-radius:.9rem}
+}
