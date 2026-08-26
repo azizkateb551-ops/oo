@@ -1,5 +1,5 @@
 ---
-/* Product details in the selected Bento visual language: one lime statement
+/* Product details in the selected Bento visual language: one orange statement
    panel plus a compact dark feature ledger. Native details keep all copy
    available without turning the page into a long white document. */
 
@@ -48,14 +48,14 @@ const features = [
   },
  ];
 
-const deviceIconPaths = {
+const deviceIconPaths: Record<string, string> = {
   phone: '<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 5h4M11 18.5h2"/>',
   headphones: '<path d="M4 13v-2a8 8 0 0116 0v2M4 13h3v7H5a1 1 0 01-1-1zM20 13h-3v7h2a1 1 0 001-1z"/>',
   gamepad: '<path d="M7 8h10a5 5 0 014.6 7l-1.2 3a2 2 0 01-3.3.7L15.5 17h-7l-1.6 1.7a2 2 0 01-3.3-.7l-1.2-3A5 5 0 017 8z"/><path d="M7 12v4M5 14h4M16.5 12.5h.01M19 15h.01"/>',
   laptop: '<rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 18h20M8 18l1-3h6l1 3"/>',
 };
 
-const iconPaths = {
+const iconPaths: Record<string, string> = {
   bolt: '<path d="M13 2L5 13h6l-1 9 9-13h-6z"/>',
   plug: '<path d="M8 3v5M16 3v5M6 8h12v2a6 6 0 01-6 6v5M9 21h6"/>',
   plane: '<path d="M3 11l18-7-7 17-3-7-8-3zM11 14l4-4"/>',
@@ -122,7 +122,7 @@ const iconPaths = {
   if (root) {
     const items = Array.from(root.querySelectorAll('[data-accordion-item]'));
 
-    const setOpen = (item, open) => {
+    const setOpen = (item: Element, open: boolean) => {
       const trigger = item.querySelector('[data-accordion-trigger]');
       const panel = item.querySelector('[data-accordion-panel]');
       if (!(trigger instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) return;

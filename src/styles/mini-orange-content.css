@@ -10,9 +10,15 @@ h1,h2,h3,h4,h5,h6{font-family:Tajawal,sans-serif;font-weight:800}
 
 /* The requested gaming image fills the existing CTA card. Its original size,
    border radius, spacing and slide-down animation remain unchanged. */
-.cta-card{color:#fff}
-.cta-card .cta-title,.cta-card .max-width-30rem{color:#fff;text-shadow:0 2px 18px #0009}
+.cta-card{color:#f7f4ee}
+.cta-card .cta-title,.cta-card .max-width-30rem{color:#f7f4ee;text-shadow:0 2px 18px #0009}
 .cta-card .sign-up-form-container{background:#111}
+
+/* Brand interaction states stay visible on both light and dark surfaces. */
+:where(a,button,input,textarea,select):focus-visible{outline:2px solid #ff7900;outline-offset:3px}
+.background-black :where(a,button,input,textarea,select):focus-visible,
+.background-secondary :where(a,button,input,textarea,select):focus-visible{outline-color:#ff7900}
+.footer-link:hover,.footer-bottom-text:hover{color:#ff7900}
 
 /* Force Tajawal across every template text role. The original design's sizes,
    spacing, weights, containers and animation geometry remain untouched. */
