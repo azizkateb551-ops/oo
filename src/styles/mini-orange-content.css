@@ -136,6 +136,17 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,label,
   100%{opacity:0;transform:translateY(-70%)}
 }
 
+@media(max-width:479px){
+  .card-flex-wrapper>.card:first-child{position:relative}
+  .card-flex-wrapper>.card:first-child .move-flex .icon{display:none}
+  .card-flex-wrapper>.card:first-child .move-flex{padding-right:0}
+  .card-flex-wrapper>.card:first-child .move-flex h4{max-width:100%}
+  .card-flex-wrapper>.card:first-child::after{
+    content:"";position:absolute;right:10px;bottom:10px;width:28px;height:28px;
+    background:url("/images/charger.svg") center/contain no-repeat;
+  }
+}
+
 @media(prefers-reduced-motion:reduce){
   .card-flex-wrapper>.card .move-flex h4{transition:none;animation:none}
   .card-flex-wrapper>.card .move-flex .move{opacity:1;transform:translateY(0)}
